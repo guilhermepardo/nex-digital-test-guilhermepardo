@@ -3,6 +3,7 @@ require('dotenv').config();
 const db = require("../sequelize/sequelize.config");
 const signupRoutes = require('../../src/features/signup/signup.route');
 const loginRoutes = require('../../src/features/login/login.route');
+const productsRoutes = require('../../src/features/products/products.route');
 class App {
     constructor() {
         this.app = express();
@@ -20,6 +21,7 @@ class App {
     async routes() {
         this.app.use('/api/v1/signup', signupRoutes);
         this.app.use('/api/v1/login', loginRoutes);
+        this.app.use('/api/v1/products', productsRoutes);
     };
 
     async initialize() {

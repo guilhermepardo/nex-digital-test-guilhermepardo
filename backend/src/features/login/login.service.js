@@ -17,9 +17,13 @@ class Service {
             if (!validLogin) throw { statusCode: 401, message: "Invalid credentials" }
             const token = jwt.sign(
                 { id: user.id, email: user.email },
-                 process.env.TOKEN_SECRET,
-                { expiresIn: process.env.TOKEN_EXPIRATION  })
-            return { token };
+                process.env.TOKEN_SECRET,
+                { expiresIn: process.env.TOKEN_EXPIRATION })
+            return {
+                id: user.id,
+                email: user.email,
+                token
+            };
         } catch (error) {
             throw error;
         };
