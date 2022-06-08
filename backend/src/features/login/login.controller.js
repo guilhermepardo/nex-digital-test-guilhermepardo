@@ -9,8 +9,8 @@ class Controller {
             res.status(200).json(response);
         } catch (error) {
             console.log('error :>>', error)
-            if (error.status) {
-                res.status(error.status).json(error);
+            if (error.statusCode) {
+                res.status(error.statusCode).json(error);
             } else {
                 res.sendStatus(500);
             };
