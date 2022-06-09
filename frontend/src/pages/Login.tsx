@@ -1,13 +1,13 @@
 import React, { SyntheticEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const submit = async (e: SyntheticEvent) => {
-
-
         e.preventDefault();
         const response = await fetch('http://localhost:5000/api/v1/login', {
             method: 'POST',
@@ -19,7 +19,13 @@ const Login = () => {
         })
 
         const content = await response.json();
-        console.log('response :>>', content)
+
+        if (content.statusCode === 200) {
+            navigate('/', {state: {
+                token: content.body.token,
+                userName: content.body.name
+            }})
+    }
 
     }
 

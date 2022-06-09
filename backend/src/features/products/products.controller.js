@@ -6,7 +6,10 @@ class Controller {
     async get(req, res) {
         try {
             const response = await productsService.get();
-            res.status(200).json(response);
+            res.status(200).json({
+                statusCode: 200,
+                body: response
+            });
         } catch (error) {
             console.log('error :>>', error)
             if (error.statusCode) {
