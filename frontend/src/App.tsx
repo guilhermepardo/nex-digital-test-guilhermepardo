@@ -13,9 +13,9 @@ function App() {
         <Nav />
         <main className="form-signin w-100 m-auto">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Register />} />
           </Routes>
         </main>
       </BrowserRouter>

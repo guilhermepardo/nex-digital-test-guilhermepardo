@@ -1,10 +1,12 @@
 import React, { SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -21,6 +23,9 @@ const Register = () => {
         const content = await response.json();
         console.log('response :>>', content)
 
+        if (content.statusCode === 201) {
+            navigate('/login')
+        }
     }
 
     return (

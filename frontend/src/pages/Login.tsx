@@ -21,7 +21,7 @@ const Login = () => {
         const content = await response.json();
 
         if (content.statusCode === 200) {
-            navigate('/', {state: {
+            navigate('/products', {state: {
                 token: content.body.token,
                 userName: content.body.name
             }})
