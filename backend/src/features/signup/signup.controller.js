@@ -6,7 +6,10 @@ class Controller {
     async post(req, res) {
         try {
             const response = await signupService.post(req.body);
-            res.status(201).json(response);
+            res.status(201).json({
+              statusCode: 201,
+              body: response  
+            });
         } catch (error) {
             console.log('error :>>', error)
             if (error.statusCode) {
