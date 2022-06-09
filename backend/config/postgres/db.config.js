@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "queenie.db.elephantsql.com",
-    USER: "pspvmwcb",
-    PASSWORD: "eq1ZqVNE0aX2QnxiAY8gmmxwiy-tW7nK",
-    DB: "pspvmwcb",
+    HOST: process.env.HOST,
+    USER: process.env.USER,
+    PASSWORD: process.env.PASSWORD,
+    DB: process.env.DB,
     dialect: "postgres",
     pool: {
         max: 5,
